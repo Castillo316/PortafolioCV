@@ -6,7 +6,13 @@ var typed = new Typed(".typing", {
     loop:true
 })
 
+document.querySelectorAll(".pro-skill-progress").forEach((bar) => {
 
+    const width = bar.getAttribute("data-width");
+
+    bar.style.setProperty("--progress-width", width);
+
+});
 
 
 
