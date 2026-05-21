@@ -1,55 +1,82 @@
-/*================================= toggler style switcher ========================================*/
+/*================================= FLOATING THEME TOGGLE ========================================*/
 
-const styleSwitcherToggle = document.querySelector(".style-switcher-toggler");
-styleSwitcherToggle.addEventListener("click", () => {
-    document.querySelector(".style-switcher").classList.toggle("open");
-}
-)
+const styleSwitcherToggle = document.querySelector(".floating-theme-toggle");
+const styleSwitcherPanel = document.querySelector(".floating-theme-panel");
 
-// hide style --switcher on scroll
-
-window.addEventListener("scroll",() => {
-    if(document.querySelector(".style-switcher").classList.contains("open"))
+if(styleSwitcherToggle && styleSwitcherPanel)
+{
+    styleSwitcherToggle.addEventListener("click", () =>
     {
-        document.querySelector(".style-switcher").classList.remove("open");
-    }
-})
+        styleSwitcherPanel.classList.toggle("open");
+    });
+}
 
-/*================================= theme color========================================*/
+/*================================= HIDE PANEL ON SCROLL ========================================*/
+
+window.addEventListener("scroll", () =>
+{
+    if(styleSwitcherPanel && styleSwitcherPanel.classList.contains("open"))
+    {
+        styleSwitcherPanel.classList.remove("open");
+    }
+});
+
+/*================================= THEME COLORS ========================================*/
 
 const alternateStyles = document.querySelectorAll(".alternate-style");
+
 function setActiveStyle(color)
 {
-    alternateStyles.forEach((style) => {
+    alternateStyles.forEach((style) =>
+    {
         if(color === style.getAttribute("title"))
         {
             style.removeAttribute("disabled");
         }
         else
         {
-            style.setAttribute("disabled","true");
+            style.setAttribute("disabled", "true");
         }
-    })
+    });
 }
 
-/*================================= theme light an dark mode ========================================*/
+/*================================= DARK / LIGHT MODE ========================================*/
 
-const dayNight = document.querySelector(" .day-night");
-dayNight.addEventListener("click", () => {
-    dayNight.querySelector("i").classList.toggle("fa-sun");
-    dayNight.querySelector("i").classList.toggle("fa-moon");
-    document.body.classList.toggle("dark")
-})
-window.addEventListener("load", () => {
+const dayNight = document.querySelector(".day-night");
+
+if(dayNight)
+{
+    const icon = dayNight.querySelector("i");
+
+    dayNight.addEventListener("click", () =>
+    {
+        document.body.classList.toggle("dark");
+
+        if(document.body.classList.contains("dark"))
+        {
+            icon.classList.remove("fa-moon");
+            icon.classList.add("fa-sun");
+        }
+        else
+        {
+            icon.classList.remove("fa-sun");
+            icon.classList.add("fa-moon");
+        }
+    });
+
+    /* ICONO INICIAL */
+
     if(document.body.classList.contains("dark"))
     {
-        dayNight.querySelector("i").classList.add("fa-sun");
+        icon.classList.remove("fa-moon");
+        icon.classList.add("fa-sun");
     }
     else
     {
-        dayNight.querySelector("i").classList.add("fa-moon");
+        icon.classList.remove("fa-sun");
+        icon.classList.add("fa-moon");
     }
-})
+}
 
 
 
