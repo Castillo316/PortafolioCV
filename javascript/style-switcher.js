@@ -3,11 +3,34 @@
 const floatingTheme = document.querySelector(".floating-theme");
 const styleSwitcherToggle = document.querySelector(".floating-theme-toggle");
 
+let hoverTimeout;
+
 if(floatingTheme && styleSwitcherToggle)
 {
+    /* CLICK TOGGLE */
+
     styleSwitcherToggle.addEventListener("click", () =>
     {
         floatingTheme.classList.toggle("open");
+    });
+
+    /* HOVER SHOW */
+
+    floatingTheme.addEventListener("mouseenter", () =>
+    {
+        clearTimeout(hoverTimeout);
+
+        floatingTheme.classList.add("open");
+    });
+
+    /* HOVER HIDE AFTER 5s */
+
+    floatingTheme.addEventListener("mouseleave", () =>
+    {
+        hoverTimeout = setTimeout(() =>
+        {
+            floatingTheme.classList.remove("open");
+        }, 5000);
     });
 }
 
