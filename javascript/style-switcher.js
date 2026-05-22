@@ -1,13 +1,13 @@
 /*================================= FLOATING THEME TOGGLE ========================================*/
 
+const floatingTheme = document.querySelector(".floating-theme");
 const styleSwitcherToggle = document.querySelector(".floating-theme-toggle");
-const styleSwitcherPanel = document.querySelector(".floating-theme-panel");
 
-if(styleSwitcherToggle && styleSwitcherPanel)
+if(floatingTheme && styleSwitcherToggle)
 {
     styleSwitcherToggle.addEventListener("click", () =>
     {
-        styleSwitcherPanel.classList.toggle("open");
+        floatingTheme.classList.toggle("open");
     });
 }
 
@@ -15,9 +15,9 @@ if(styleSwitcherToggle && styleSwitcherPanel)
 
 window.addEventListener("scroll", () =>
 {
-    if(styleSwitcherPanel && styleSwitcherPanel.classList.contains("open"))
+    if(floatingTheme && floatingTheme.classList.contains("open"))
     {
-        styleSwitcherPanel.classList.remove("open");
+        floatingTheme.classList.remove("open");
     }
 });
 
