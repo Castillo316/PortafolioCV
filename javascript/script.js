@@ -15,5 +15,27 @@ document.querySelectorAll(".pro-skill-progress").forEach((bar) => {
 });
 
 
+const music = document.getElementById("bg-music");
+const musicBtn = document.getElementById("music-toggle");
 
+let isPlaying = false;
+
+musicBtn.addEventListener("click", () =>
+{
+    if(isPlaying)
+    {
+        music.pause();
+        musicBtn.classList.remove("active");
+    }
+    else
+    {
+        music.play();
+        musicBtn.classList.add("active");
+    }
+
+    isPlaying = !isPlaying;
+});
+
+/* volumen elegante */
+music.volume = 0.65;
 
