@@ -1516,11 +1516,16 @@ body.dark .portfolio-item-inner
 }
 @media (max-width:767px)
 {
+{
     .floating-theme
     {
-        top: 15px;
-        right: 15px;
+        top: 90px;
+        left: 12px;
+
+        width: 50px;
+        height: 50px;
     }
+}
 
     .floating-theme-panel
     {
