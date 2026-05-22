@@ -1,3 +1,4 @@
+```javascript id="d8u2m1"
 /*================================= FLOATING THEME TOGGLE ========================================*/
 
 const floatingTheme = document.querySelector(".floating-theme");
@@ -23,26 +24,34 @@ if(floatingTheme && styleSwitcherToggle)
         floatingTheme.classList.add("open");
     });
 
-    /* HOVER HIDE AFTER 3s */
+    /* HOVER HIDE AFTER 5s */
 
     floatingTheme.addEventListener("mouseleave", () =>
     {
         hoverTimeout = setTimeout(() =>
         {
             floatingTheme.classList.remove("open");
-        }, 3000);
+        }, 5000);
     });
 }
 
 /*================================= HIDE PANEL ON SCROLL ========================================*/
 
-window.addEventListener("scroll", () =>
+function hideThemePanel()
 {
     if(floatingTheme && floatingTheme.classList.contains("open"))
     {
         floatingTheme.classList.remove("open");
     }
-});
+}
+
+/* PC SCROLL */
+
+window.addEventListener("scroll", hideThemePanel);
+
+/* MOBILE TOUCH SCROLL */
+
+window.addEventListener("touchmove", hideThemePanel);
 
 /*================================= THEME COLORS ========================================*/
 
@@ -100,6 +109,8 @@ if(dayNight)
         icon.classList.add("fa-moon");
     }
 }
+```
+
 
 
 
