@@ -1,57 +1,25 @@
-```javascript id="d8u2m1"
 /*================================= FLOATING THEME TOGGLE ========================================*/
 
-const floatingTheme = document.querySelector(".floating-theme");
 const styleSwitcherToggle = document.querySelector(".floating-theme-toggle");
+const styleSwitcherPanel = document.querySelector(".floating-theme-panel");
 
-let hoverTimeout;
-
-if(floatingTheme && styleSwitcherToggle)
+if(styleSwitcherToggle && styleSwitcherPanel)
 {
-    /* CLICK TOGGLE */
-
     styleSwitcherToggle.addEventListener("click", () =>
     {
-        floatingTheme.classList.toggle("open");
-    });
-
-    /* HOVER SHOW */
-
-    floatingTheme.addEventListener("mouseenter", () =>
-    {
-        clearTimeout(hoverTimeout);
-
-        floatingTheme.classList.add("open");
-    });
-
-    /* HOVER HIDE AFTER 5s */
-
-    floatingTheme.addEventListener("mouseleave", () =>
-    {
-        hoverTimeout = setTimeout(() =>
-        {
-            floatingTheme.classList.remove("open");
-        }, 5000);
+        styleSwitcherPanel.classList.toggle("open");
     });
 }
 
 /*================================= HIDE PANEL ON SCROLL ========================================*/
 
-function hideThemePanel()
+window.addEventListener("scroll", () =>
 {
-    if(floatingTheme && floatingTheme.classList.contains("open"))
+    if(styleSwitcherPanel && styleSwitcherPanel.classList.contains("open"))
     {
-        floatingTheme.classList.remove("open");
+        styleSwitcherPanel.classList.remove("open");
     }
-}
-
-/* PC SCROLL */
-
-window.addEventListener("scroll", hideThemePanel);
-
-/* MOBILE TOUCH SCROLL */
-
-window.addEventListener("touchmove", hideThemePanel);
+});
 
 /*================================= THEME COLORS ========================================*/
 
@@ -109,7 +77,6 @@ if(dayNight)
         icon.classList.add("fa-moon");
     }
 }
-```
 
 
 
