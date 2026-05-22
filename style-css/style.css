@@ -1150,12 +1150,37 @@ body.dark .portfolio-item-inner
 {
     position: fixed;
 
-    top: 200px;
-    left: 25px;
+    top: 150px;
+    right: 20px;
+
+    width: 55px;
+    height: 55px;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    background: rgba(20,20,20,0.85);
+
+    backdrop-filter: blur(10px);
+
+    border: 1px solid rgba(255,255,255,0.08);
+
+    color: var(--skin-color);
+
+    font-size: 22px;
+
+    cursor: pointer;
 
     transform: translateY(-80%);
 
     z-index: 9999;
+
+    box-shadow:
+    0 0 20px rgba(0,0,0,0.4);
 }
 
 .floating-theme-toggle
