@@ -23,14 +23,14 @@ if(floatingTheme && styleSwitcherToggle)
         floatingTheme.classList.add("open");
     });
 
-    /* HOVER HIDE AFTER 5s */
+    /* HOVER HIDE AFTER 3s */
 
     floatingTheme.addEventListener("mouseleave", () =>
     {
         hoverTimeout = setTimeout(() =>
         {
             floatingTheme.classList.remove("open");
-        }, 5000);
+        }, 3000);
     });
 }
 
